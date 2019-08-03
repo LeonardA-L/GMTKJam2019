@@ -2,14 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SwitchboardController : MonoBehaviour
+public class SwitchboardController : Singleton<SwitchboardController>
 {
     public bool m_available = false;
 
+    public GameObject m_ok = null;
+    public GameObject m_nok = null;
+
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        
+        m_ok.SetActive(true);
+        m_nok.SetActive(false);
+
     }
 
     // Update is called once per frame
@@ -55,6 +60,14 @@ public class SwitchboardController : MonoBehaviour
         {
             item.Repare();
         }
+        m_nok.SetActive(false);
+        m_ok.SetActive(true);
         UpdateTooltips();
+    }
+
+    public void ShowDamage()
+    {
+        m_nok.SetActive(true);
+        m_ok.SetActive(false);
     }
 }

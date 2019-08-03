@@ -11,6 +11,7 @@ public class CanvasController : Singleton<CanvasController>
     public GameObject m_remove;
     public GameObject m_broken;
     public GameObject m_fuses;
+    public GameObject m_interact;
 
     private void Awake()
     {
@@ -39,6 +40,10 @@ public class CanvasController : Singleton<CanvasController>
     {
         m_fuses.SetActive(true);
     }
+    public void TooltipInteract()
+    {
+        m_interact.SetActive(true);
+    }
 
     public void RemoveTooltips()
     {
@@ -46,5 +51,6 @@ public class CanvasController : Singleton<CanvasController>
         m_remove.SetActive(false);
         m_broken.SetActive(false);
         m_fuses.SetActive(false);
+        m_interact.SetActive(false);
     }
 }

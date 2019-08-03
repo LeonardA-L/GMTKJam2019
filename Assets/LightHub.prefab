@@ -110,6 +110,8 @@ MonoBehaviour:
   m_hasBulb: 0
   m_broken: 0
   m_light: {fileID: 7915982734918107393}
+  m_timeConstraints: {x: 5, y: 6}
+  m_life: 0
 --- !u!1 &7915982734918107392
 GameObject:
   m_ObjectHideFlags: 0

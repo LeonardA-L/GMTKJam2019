@@ -11,6 +11,9 @@ public class LightHubController : MonoBehaviour
     public bool m_broken = false;
     public Light m_light = null;
 
+    public Vector2 m_timeConstraints;
+    public float m_life = 0;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -24,6 +27,18 @@ public class LightHubController : MonoBehaviour
         if(m_available && Input.GetKeyDown(KeyCode.Space))
         {
             Toggle();
+        }
+    }
+
+    private void LateUpdate()
+    {
+        if (Character.Instance.HasMoved && m_on)
+        {
+            m_life -= Time.deltaTime;
+            if(m_life <= 0)
+            {
+                Break();
+            }
         }
     }
 
@@ -68,7 +83,7 @@ public class LightHubController : MonoBehaviour
         {
             LightBulbManager.Instance.ReleaseBulb();
             m_hasBulb = false;
-            ShutDown();
+            TurnOff();
         }
         else if (LightBulbManager.Instance.HasBulb && !m_broken)
         {
@@ -83,9 +98,10 @@ public class LightHubController : MonoBehaviour
     {
         m_on = true;
         m_light.gameObject.SetActive(m_on);
+        m_life = UnityEngine.Random.Range(m_timeConstraints.x, m_timeConstraints.y);
     }
 
-    private void ShutDown()
+    private void TurnOff()
     {
         m_on = false;
         m_light.gameObject.SetActive(m_on);
@@ -94,5 +110,18 @@ public class LightHubController : MonoBehaviour
     public void Repare()
     {
         m_broken = false;
+        if (m_hasBulb)
+        {
+            TurnOn();
+        }
     }
+
+    private void Break()
+    {
+        m_broken = true;
+        TurnOff();
+        SwitchboardController.Instance.ShowDamage();
+    }
+
+    public bool IsOn => m_on;
 }
