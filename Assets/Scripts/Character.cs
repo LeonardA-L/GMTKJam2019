@@ -14,6 +14,10 @@ public class Character : Singleton<Character>
 
     void Update()
     {
+        if (InteractibleUIController.Instance.IsInteracting)
+        {
+            return;
+        }
         HasMoved = false;
         Vector3 move = new Vector3(Input.GetAxis("Vertical"), 0, -Input.GetAxis("Horizontal"));
         _controller.Move(move * Time.deltaTime * Speed);

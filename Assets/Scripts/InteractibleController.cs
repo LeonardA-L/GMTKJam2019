@@ -35,7 +35,7 @@ public class InteractibleController : MonoBehaviour
             {
                 UpdateTooltips();
             }
-            if (m_available && Input.GetKeyDown(KeyCode.Space))
+            if (m_available && Input.GetKeyDown(KeyCode.Space) && !InteractibleUIController.Instance.IsInteracting)
             {
                 Interact();
             }

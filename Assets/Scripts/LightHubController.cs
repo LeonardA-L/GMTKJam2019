@@ -24,7 +24,7 @@ public class LightHubController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(m_available && Input.GetKeyDown(KeyCode.Space))
+        if(m_available && Input.GetKeyDown(KeyCode.Space) && !InteractibleUIController.Instance.IsInteracting)
         {
             Toggle();
         }

@@ -12,6 +12,7 @@ public class InteractibleUIController : Singleton<InteractibleUIController>
     public Image m_img = null;
     public Image m_imgShadow = null;
 
+    private bool m_internalInteracting = false;
     public bool IsInteracting { get; private set; } = false;
 
     // Start is called before the first frame update
@@ -24,7 +25,12 @@ public class InteractibleUIController : Singleton<InteractibleUIController>
     // Update is called once per frame
     void Update()
     {
-        if(Input.anyKeyDown
+        if (!m_internalInteracting)
+        {
+            IsInteracting = false;
+        }
+        if (Input.GetKeyDown(KeyCode.Space)
+            || Input.GetKeyDown(KeyCode.Escape)
             || Input.GetMouseButtonDown(1)
             || Input.GetMouseButtonDown(0)
             )
@@ -36,7 +42,7 @@ public class InteractibleUIController : Singleton<InteractibleUIController>
     private void Disable()
     {
         m_wrapper.SetActive(false);
-        IsInteracting = false;
+        m_internalInteracting = false;
     }
 
     internal void Interact(InteractibleItem m_item)
@@ -46,5 +52,6 @@ public class InteractibleUIController : Singleton<InteractibleUIController>
         m_img.sprite = m_item.m_2DSprite;
         m_imgShadow.sprite = m_item.m_2DSprite;
         IsInteracting = true;
+        m_internalInteracting = true;
     }
 }
