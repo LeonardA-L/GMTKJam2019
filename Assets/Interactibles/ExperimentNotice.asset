@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87c0c60a072e9f84a976a13d1ad6bad4, type: 3}
+  m_Name: ExperimentNotice
+  m_EditorClassIdentifier: 
+  m_2DSprite: {fileID: 21300000, guid: d41a484731099084f93ad60aea59f4c7, type: 3}
+  m_text: "A small note is pinned inside the coffin.\r\n<i>\"Experiment #26: The subject
+    did not meet my expectations. His decaying state was far too advanced to be of
+    any use for the ritual. I know now that the corpse must be none older than a day
+    for the intended purpose. The next subject will be the one.\"\r</i>\nThe number
+    <i>\"7\"</i> was engraved on the coffin under the note.\r\n"
+  m_font: {fileID: 11400000, guid: 11136db723f437a4ea8487bcc8e3ab17, type: 2}

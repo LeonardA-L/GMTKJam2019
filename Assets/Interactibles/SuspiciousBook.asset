@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87c0c60a072e9f84a976a13d1ad6bad4, type: 3}
+  m_Name: SuspiciousBook
+  m_EditorClassIdentifier: 
+  m_2DSprite: {fileID: 21300000, guid: a9504a879060d32469107aaba06a7bf0, type: 3}
+  m_text: "It's a report exploring scientific assertions in fiction novels. The chapter
+    about Frankenstein has been bookmarked.\r\n\n<i>\"\u2026 incidentally, Frankenstein's
+    method of reanimation is as much science as Sch\xF6nberg's cacophony might be
+    considered music, or Picasso's daub might be qualified as art. There is as much
+    \u2014if not more\u2014 alchemy non-sense in the description of his processus
+    of the recreation of life as there are proper scientific considerations. But what
+    if we took it seriously anyway for a brief moment? Would the spark of life be
+    able to invest the body of a dead man through Electricity?\r\nThere again, the
+    answer must be no: The sheer power of the electric shock would be more than enough
+    to completely cook the brain of the corpse. And even if a miracle happened and
+    the brain would start functioning again, there is absolutely no guarantee that
+    the same individual as before would emerge from death. Brains decay from the very
+    first moment of death \u2014who can say what kind of conscience can be restored
+    from damaged material? Certainly not yours truly \u2014but what I can say is that
+    it will not be the person you knew when they were alive...\"\r</i>\n\nWhen I tried
+    to take the book, I heard a faint sound like a clicking. In such an old manor,
+    it wouldn't surprise me to find secret passageways hidden behind one of these
+    bookcases.\r\n"
+  m_font: {fileID: 11400000, guid: 11136db723f437a4ea8487bcc8e3ab17, type: 2}

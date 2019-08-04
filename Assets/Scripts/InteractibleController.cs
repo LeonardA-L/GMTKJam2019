@@ -31,7 +31,7 @@ public class InteractibleController : MonoBehaviour
         m_interactable.SetActive(m_lit);
         if (m_lit)
         {
-            if (m_available)
+            if (m_available && !InteractibleUIController.Instance.IsInteracting)
             {
                 UpdateTooltips();
             }

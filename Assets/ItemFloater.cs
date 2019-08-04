@@ -10,6 +10,7 @@ public class ItemFloater : MonoBehaviour
     public Transform m_shadow = null;
     public float m_scaleAmpl = 1;
     public float m_scaleSpeed = 0.3f;
+    public bool m_ZAxis = false;
 
     // Start is called before the first frame update
     void Awake()
@@ -21,9 +22,19 @@ public class ItemFloater : MonoBehaviour
     void Update()
     {
         Vector3 pos = m_position;
-        pos += new Vector3(0, m_ampl * Mathf.Sin(Time.time * m_speed), 0);
+        if (m_ZAxis)
+        {
+            pos += new Vector3(m_ampl * Mathf.Sin(Time.time * m_speed), 0, 0);
+        }
+        else
+        {
+            pos += new Vector3(0, m_ampl * Mathf.Sin(Time.time * m_speed), 0);
+        }
         transform.localPosition = pos;
 
-        m_shadow.localScale = new Vector3(1, 1, 1) * (1 + m_scaleAmpl * Mathf.Sin(Time.time * m_scaleSpeed));
+        if (m_shadow != null)
+        {
+            m_shadow.localScale = new Vector3(1, 1, 1) * (1 + m_scaleAmpl * Mathf.Sin(Time.time * m_scaleSpeed));
+        }
     }
 }

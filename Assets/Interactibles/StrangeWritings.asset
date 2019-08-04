@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87c0c60a072e9f84a976a13d1ad6bad4, type: 3}
+  m_Name: StrangeWritings
+  m_EditorClassIdentifier: 
+  m_2DSprite: {fileID: 21300000, guid: 26fa0f28526bdc143a1601e6e8338854, type: 3}
+  m_text: "It\u2019s a half burnt page covered with a strange alphabet.\r\n\n<i>\"Father
+    of All Lies hear my call\r\nOver the waking world Thy shadow shall reign\r\nUnder
+    Thy power I place my soul\r\nRelease the one I seek from your kingdom\"\r</i>\n\nThe
+    rest has been lost in the flames. I recognise some of the characters, though I
+    can't read most of them. The firsts of each line spell the word <i>\"FOUR\"</i>.\r\n"
+  m_font: {fileID: 11400000, guid: 11136db723f437a4ea8487bcc8e3ab17, type: 2}

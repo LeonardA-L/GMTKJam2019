@@ -13,6 +13,8 @@ public class CanvasController : Singleton<CanvasController>
     public GameObject m_fuses;
     public GameObject m_interact;
 
+    public GameObject m_spacebar;
+
     private void Awake()
     {
         RemoveTooltips();
@@ -27,10 +29,12 @@ public class CanvasController : Singleton<CanvasController>
     public void TooltipPlace()
     {
         m_place.SetActive(true);
+        m_spacebar.SetActive(true);
     }
     public void TooltipRemove()
     {
         m_remove.SetActive(true);
+        m_spacebar.SetActive(true);
     }
     public void TooltipBroken()
     {
@@ -39,14 +43,17 @@ public class CanvasController : Singleton<CanvasController>
     public void TooltipFuses()
     {
         m_fuses.SetActive(true);
+        m_spacebar.SetActive(true);
     }
     public void TooltipInteract()
     {
         m_interact.SetActive(true);
+        m_spacebar.SetActive(true);
     }
 
     public void RemoveTooltips()
     {
+        m_spacebar.SetActive(false);
         m_place.SetActive(false);
         m_remove.SetActive(false);
         m_broken.SetActive(false);

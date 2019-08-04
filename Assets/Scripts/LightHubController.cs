@@ -9,7 +9,8 @@ public class LightHubController : MonoBehaviour
     public bool m_on = false;
     public bool m_hasBulb = false;
     public bool m_broken = false;
-    public Light m_light = null;
+    public Animator m_anim = null;
+    //public Light m_light = null;
 
     public Vector2 m_timeConstraints;
     public float m_life = 0;
@@ -35,7 +36,7 @@ public class LightHubController : MonoBehaviour
 
     private void LateUpdate()
     {
-        if (Character.Instance.HasMoved && m_on)
+        if (Character.Instance.HasMoved && m_on && !InteractibleUIController.Instance.IsInteracting && !InteractibleUIController.Instance.IsMenu)
         {
             m_life -= Time.deltaTime;
             if(m_life <= 0)
@@ -88,11 +89,16 @@ public class LightHubController : MonoBehaviour
         }
         else if (LightBulbManager.Instance.HasBulb && !m_broken)
         {
-            m_hasBulb = true;
-            LightBulbManager.Instance.TakeBulb(this);
-            TurnOn();
+            Take();
         }
         UpdateTooltips();
+    }
+
+    public void Take()
+    {
+        m_hasBulb = true;
+        LightBulbManager.Instance.TakeBulb(this);
+        TurnOn();
     }
 
     public void Release()
@@ -106,7 +112,8 @@ public class LightHubController : MonoBehaviour
     {
         m_on = true;
         m_lit = true;
-        m_light.gameObject.SetActive(m_on);
+        //m_light.gameObject.SetActive(m_on);
+        m_anim.SetBool("Turned", m_on);
         m_life = UnityEngine.Random.Range(m_timeConstraints.x, m_timeConstraints.y);
     }
 
@@ -114,12 +121,14 @@ public class LightHubController : MonoBehaviour
     {
         m_on = false;
         m_lit = false;
-        m_light.gameObject.SetActive(m_on);
+        m_anim.SetBool("Turned", m_on);
+        //m_light.gameObject.SetActive(m_on);
     }
 
     public void Repare()
     {
         m_broken = false;
+        m_anim.SetBool("Broken", false);
         if (m_hasBulb)
         {
             TurnOn();
@@ -130,6 +139,7 @@ public class LightHubController : MonoBehaviour
     {
         m_broken = true;
         TurnOff();
+        m_anim.SetBool("Broken", true);
         SwitchboardController.Instance.ShowDamage();
     }
 

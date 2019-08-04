@@ -60,12 +60,14 @@ public class InteractibleUIController : Singleton<InteractibleUIController>
 
     internal void Interact(InteractibleItem m_item)
     {
+        CanvasController.Instance.RemoveTooltips();
         m_wrapper.SetActive(true);
         m_text.text = m_item.m_text;
         m_img.sprite = m_item.m_2DSprite;
         m_imgShadow.sprite = m_item.m_2DSprite;
         IsInteracting = true;
         m_internalInteracting = true;
+        m_text.font = m_item.m_font;
     }
 
     public IEnumerator HideMenuCor()
