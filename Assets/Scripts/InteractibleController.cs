@@ -17,7 +17,7 @@ public class InteractibleController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
         m_lit = false;
         foreach (var item in m_lights)
@@ -58,7 +58,7 @@ public class InteractibleController : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.tag == "Character")
+        if (m_available && other.gameObject.tag == "Character")
         {
             m_available = false;
             CanvasController.Instance.RemoveTooltips();
