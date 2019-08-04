@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8111111610579509909}
   - component: {fileID: 994015368771819683}
   - component: {fileID: 6843213987252249690}
+  - component: {fileID: 6799323057923793310}
   m_Layer: 0
   m_Name: Chaise-haute
   m_TagString: Untagged
@@ -77,3 +78,16 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &6799323057923793310
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5101220282940887174}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.8041147, y: 2.3343546, z: 0.3367961}
+  m_Center: {x: -0.0000002533197, y: 1.1681753, z: -0.000000059604638}
