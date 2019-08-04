@@ -23,6 +23,8 @@ public class InteractibleUIController : Singleton<InteractibleUIController>
     public float m_timerMax = 1f;
     public float m_titleFadeMax = 0.4f;
 
+    public Image m_victoryScreen = null;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -113,5 +115,24 @@ public class InteractibleUIController : Singleton<InteractibleUIController>
         IsInteracting = false;
         m_internalInteracting = false;
         IsMenu = false;
+    }
+
+    public void OpenVictory()
+    {
+        StartCoroutine(OpenVictoryCor());
+        IsInteracting = true;
+        m_internalInteracting = true;
+        IsMenu = true;
+    }
+    public IEnumerator OpenVictoryCor()
+    {
+        m_victoryScreen.gameObject.SetActive(true);
+        float t = 6;
+        while (t >= 0)
+        {
+            t -= Time.deltaTime;
+            m_victoryScreen.color = Color.Lerp(new Color(0,0,0,0), new Color(0, 0, 0, 1), (1-(t / 6)));
+            yield return null;
+        }
     }
 }
