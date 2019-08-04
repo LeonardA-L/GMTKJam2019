@@ -53,7 +53,7 @@ public class SwitchboardController : Singleton<SwitchboardController>
         }
     }
 
-    private void Toggle()
+    public void Toggle()
     {
         var foundObjects = FindObjectsOfType<LightHubController>();
         foreach (var item in foundObjects)

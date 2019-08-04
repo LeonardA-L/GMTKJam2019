@@ -43,7 +43,7 @@ public class InteractibleUIController : Singleton<InteractibleUIController>
             IsInteracting = false;
         }
         if (Input.GetKeyDown(KeyCode.Space)
-            || Input.GetKeyDown(KeyCode.Escape)
+            || Input.GetKeyDown(KeyCode.Tab)
             || Input.GetMouseButtonDown(1)
             || Input.GetMouseButtonDown(0)
             )
@@ -52,7 +52,7 @@ public class InteractibleUIController : Singleton<InteractibleUIController>
         }
     }
 
-    private void Disable()
+    public void Disable()
     {
         m_wrapper.SetActive(false);
         m_internalInteracting = false;
@@ -94,8 +94,22 @@ public class InteractibleUIController : Singleton<InteractibleUIController>
         m_menuBg.gameObject.SetActive(false);
     }
 
-    public void HideMenu()
+    public void HideMainMenu()
     {
         StartCoroutine(HideMenuCor());
+    }
+
+    public void OpenMenu()
+    {
+        Disable();
+        IsInteracting = true;
+        m_internalInteracting = true;
+        IsMenu = true;
+    }
+    public void CloseMenu()
+    {
+        IsInteracting = false;
+        m_internalInteracting = false;
+        IsMenu = false;
     }
 }

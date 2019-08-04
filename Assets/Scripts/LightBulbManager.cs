@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class LightBulbManager : Singleton<LightBulbManager>
 {
-    public bool m_hasBulb = true;
+    public LightHubController m_hub = null;
 
     // Start is called before the first frame update
     void Awake()
@@ -18,16 +18,16 @@ public class LightBulbManager : Singleton<LightBulbManager>
         
     }
 
-    public bool HasBulb => m_hasBulb;
+    public bool HasBulb => m_hub == null;
 
-    public void TakeBulb()
+    public void TakeBulb(LightHubController hub)
     {
-        m_hasBulb = false;
+        m_hub = hub;
         CanvasController.Instance.MakeAvailable(false);
     }
     public void ReleaseBulb()
     {
-        m_hasBulb = true;
+        m_hub = null;
         CanvasController.Instance.MakeAvailable(true);
     }
 }

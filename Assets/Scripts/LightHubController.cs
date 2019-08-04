@@ -14,11 +14,14 @@ public class LightHubController : MonoBehaviour
     public Vector2 m_timeConstraints;
     public float m_life = 0;
 
+    public static bool m_lit = false;
+
     // Start is called before the first frame update
     void Awake()
     {
         m_available = false;
         m_on = false;
+        m_lit = false;
     }
 
     // Update is called once per frame
@@ -81,22 +84,28 @@ public class LightHubController : MonoBehaviour
     {
         if (m_hasBulb)
         {
-            LightBulbManager.Instance.ReleaseBulb();
-            m_hasBulb = false;
-            TurnOff();
+            Release();
         }
         else if (LightBulbManager.Instance.HasBulb && !m_broken)
         {
             m_hasBulb = true;
-            LightBulbManager.Instance.TakeBulb();
+            LightBulbManager.Instance.TakeBulb(this);
             TurnOn();
         }
         UpdateTooltips();
     }
 
+    public void Release()
+    {
+        LightBulbManager.Instance.ReleaseBulb();
+        m_hasBulb = false;
+        TurnOff();
+    }
+
     private void TurnOn()
     {
         m_on = true;
+        m_lit = true;
         m_light.gameObject.SetActive(m_on);
         m_life = UnityEngine.Random.Range(m_timeConstraints.x, m_timeConstraints.y);
     }
@@ -104,6 +113,7 @@ public class LightHubController : MonoBehaviour
     private void TurnOff()
     {
         m_on = false;
+        m_lit = false;
         m_light.gameObject.SetActive(m_on);
     }
 
