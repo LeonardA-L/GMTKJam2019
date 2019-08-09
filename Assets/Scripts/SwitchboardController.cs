@@ -63,6 +63,7 @@ public class SwitchboardController : Singleton<SwitchboardController>
         m_nok.SetActive(false);
         m_ok.SetActive(true);
         UpdateTooltips();
+        AudioManager.Instance.PlaySound("Switchboard");
     }
 
     public void ShowDamage()

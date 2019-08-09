@@ -98,6 +98,7 @@ public class LightHubController : MonoBehaviour
     {
         m_hasBulb = true;
         LightBulbManager.Instance.TakeBulb(this);
+        AudioManager.Instance?.PlaySound("LampOn");
         TurnOn();
     }
 
@@ -140,6 +141,7 @@ public class LightHubController : MonoBehaviour
         m_broken = true;
         TurnOff();
         m_anim.SetBool("Broken", true);
+        AudioManager.Instance.PlaySound("LampBroken");
         SwitchboardController.Instance.ShowDamage();
     }
 

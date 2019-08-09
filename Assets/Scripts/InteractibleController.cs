@@ -68,5 +68,6 @@ public class InteractibleController : MonoBehaviour
     private void Interact()
     {
         InteractibleUIController.Instance.Interact(m_item);
+        AudioManager.Instance.PlaySound("Interact");
     }
 }

@@ -6,8 +6,7 @@ public class LightBulbManager : Singleton<LightBulbManager>
 {
     public LightHubController m_hub = null;
     public GameObject m_tutorial = null;
-    public bool m_bool = false;
-
+    public GameObject m_startSafe = null;
     // Start is called before the first frame update
     void Awake()
     {
@@ -27,14 +26,11 @@ public class LightBulbManager : Singleton<LightBulbManager>
     {
         m_hub = hub;
         CanvasController.Instance.MakeAvailable(false);
-        if (m_bool)
-        {
-        }
-        m_bool = true;
     }
     public void ReleaseBulb()
     {
             m_tutorial.SetActive(false);
+        m_startSafe.SetActive(false);
         m_hub = null;
         CanvasController.Instance.MakeAvailable(true);
     }
