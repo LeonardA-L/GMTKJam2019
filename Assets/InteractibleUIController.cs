@@ -70,6 +70,7 @@ public class InteractibleUIController : Singleton<InteractibleUIController>
         IsInteracting = true;
         m_internalInteracting = true;
         m_text.font = m_item.m_font;
+        ProgressionManager.Instance.Set(m_item.m_switch, true);
     }
 
     public IEnumerator HideMenuCor()
@@ -120,9 +121,6 @@ public class InteractibleUIController : Singleton<InteractibleUIController>
     public void OpenVictory()
     {
         StartCoroutine(OpenVictoryCor());
-        IsInteracting = true;
-        m_internalInteracting = true;
-        IsMenu = true;
     }
     public IEnumerator OpenVictoryCor()
     {
@@ -132,6 +130,12 @@ public class InteractibleUIController : Singleton<InteractibleUIController>
         {
             t -= Time.deltaTime;
             m_victoryScreen.color = Color.Lerp(new Color(0,0,0,0), new Color(0, 0, 0, 1), (1-(t / 6)));
+            if (t > 3)
+            {
+                IsInteracting = true;
+                m_internalInteracting = true;
+                IsMenu = true;
+            }
             yield return null;
         }
     }

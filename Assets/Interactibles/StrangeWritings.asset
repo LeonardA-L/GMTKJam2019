@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: StrangeWritings
   m_EditorClassIdentifier: 
   m_2DSprite: {fileID: 21300000, guid: 26fa0f28526bdc143a1601e6e8338854, type: 3}
-  m_text: "It\u2019s a half burnt page covered with a strange alphabet.\r\n\n<i>\"Father
+  m_text: "It's a half burnt page with an strange incantation...\r\n\r\n<i>\"Father
     of All Lies hear my call\r\nOver the waking world Thy shadow shall reign\r\nUnder
-    Thy power I place my soul\r\nRelease the one I seek from your kingdom\"\r</i>\n\nThe
-    rest has been lost in the flames. I recognise some of the characters, though I
-    can't read most of them. The firsts of each line spell the word <i>\"FOUR\"</i>.\r\n"
+    Thy power I place my soul\r\nRelease the one I seek from Thy kingdom\"\r</i>\n\r\nThe
+    rest has been lost in the flames. The first of each line spell the word \"FOUR\"."
   m_font: {fileID: 11400000, guid: 11136db723f437a4ea8487bcc8e3ab17, type: 2}
+  m_switch: SAM2

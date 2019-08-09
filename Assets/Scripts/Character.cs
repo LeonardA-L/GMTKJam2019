@@ -4,12 +4,14 @@ public class Character : Singleton<Character>
 {
     public float Speed = 0.3f;
     private CharacterController _controller;
+    private Vector3 m_fpos;
 
     public bool HasMoved { get; private set; }
 
     void Start()
     {
         _controller = GetComponent<CharacterController>();
+        m_fpos = transform.position;
     }
 
     void Update()
@@ -26,6 +28,7 @@ public class Character : Singleton<Character>
             transform.forward = move;
             HasMoved = true;
         }
+        transform.position = new Vector3(transform.position.x, m_fpos.y, transform.position.z);
     }
 
 }
