@@ -82,6 +82,7 @@ public class MenuController : Singleton<MenuController>
     {
         m_igUIWrapper.SetActive(false);
         InteractibleUIController.Instance.OpenMenu();
+        AudioManager.Instance.PlaySound("Death");
         m_deathmenuWrapper.SetActive(true);
         float t = m_deathTransTime;
         while (t >= 0)

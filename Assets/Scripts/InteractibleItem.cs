@@ -9,4 +9,5 @@ public class InteractibleItem : ScriptableObject
     [TextArea(10,100)]
     public string m_text = null;
     public TMPro.TMP_FontAsset m_font = null;
+    public string m_switch = null;
 }

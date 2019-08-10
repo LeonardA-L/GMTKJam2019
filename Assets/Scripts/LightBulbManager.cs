@@ -5,11 +5,13 @@ using UnityEngine;
 public class LightBulbManager : Singleton<LightBulbManager>
 {
     public LightHubController m_hub = null;
-
+    public GameObject m_tutorial = null;
+    public GameObject m_startSafe = null;
     // Start is called before the first frame update
     void Awake()
     {
-        ReleaseBulb();
+        //ReleaseBulb();
+        m_hub.Take();
     }
 
     // Update is called once per frame
@@ -27,6 +29,8 @@ public class LightBulbManager : Singleton<LightBulbManager>
     }
     public void ReleaseBulb()
     {
+            m_tutorial.SetActive(false);
+        m_startSafe.SetActive(false);
         m_hub = null;
         CanvasController.Instance.MakeAvailable(true);
     }
