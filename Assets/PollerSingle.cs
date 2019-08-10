@@ -8,9 +8,16 @@ public class PollerSingle : MonoBehaviour
     public List<GameObject> m_toTej = null;
     public List<GameObject> m_toAct = null;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        
+        foreach (var item in m_toTej)
+        {
+            item.SetActive(true);
+        }
+        foreach (var item in m_toAct)
+        {
+            item.SetActive(false);
+        }
     }
 
     // Update is called once per frame
